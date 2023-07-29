@@ -1,6 +1,7 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:instaknown/UI/Login/welcome.dart';
 import 'package:instaknown/UI/Pages/HomePage.dart';
 import 'package:instaknown/UI/Resources/Constants.dart' as R;
 
@@ -14,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   _goToHomepage(BuildContext context) async {
     await Future.delayed(Duration(seconds: 5));
-    Navigator.pushNamedAndRemoveUntil(context, HomePage.id, (r) => false);
+    Navigator.pushNamedAndRemoveUntil(context, WelcomePage.id, (r) => false);
   }
 
   @override
@@ -55,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 400,
               width: 400,
               // color: Colors.red,
-              child:Image.asset('assets/Pune.gif'),
+              child: Image.asset('assets/Pune.gif'),
               // child: FlareActor(
               //   'assets/emoji1.flr',
               //   shouldClip: false,

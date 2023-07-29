@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:instaknown/UI/Login/login.dart';
+import 'package:instaknown/UI/Login/welcome.dart';
 import 'package:instaknown/UI/Pages/AboutPage.dart';
 import 'package:instaknown/UI/Pages/HomePage.dart';
 import 'package:instaknown/UI/Pages/SplashScreen.dart';
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
         HomePage.id: (context) => HomePage(),
         SplashScreen.id: (context) => SplashScreen(),
         AboutPage.id: (context) => AboutPage(),
+        WelcomePage.id: (context) => WelcomePage(),
+        LoginPage.id: (context)=> LoginPage()
       },
       // initialRoute: SplashScreen.id,
       home: SplashScreen(),

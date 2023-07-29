@@ -5,6 +5,7 @@ import 'package:instaknown/UI/Login/components/my_button.dart';
 import 'package:instaknown/UI/Login/components/my_textfield.dart';
 import 'package:instaknown/UI/Login/welcome.dart';
 import 'package:flutter/material.dart';
+import 'package:instaknown/UI/Pages/HomePage.dart';
 
 class LoginPage extends StatefulWidget {
   static const id = 'Login Page';
@@ -157,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => LoginPage()));
+                                            builder: (context) => HomePage()));
                                   },
                                 ),
                                 const SizedBox(height: 15),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "20079092972",
+    "project_id": "pune-police-insta-analysis",
+    "storage_bucket": "pune-police-insta-analysis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20079092972:android:2660cbb0c277803754b1c9",
+        "android_client_info": {
+          "package_name": "com.example.post_analysis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20079092972-g5o3kfa2blng8sp79madgs91b9o1aj9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPSBm5v2mPqd6-H0jFj9feFFEnXGGCBQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20079092972-g5o3kfa2blng8sp79madgs91b9o1aj9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -99,7 +99,7 @@ class _PrivateAccountState extends State<PrivateAccount> {
                         left: 0,
                         child: Container(
                           key: stickyKeyUsenameContainer,
-                          color: Colors.pinkAccent,
+                          color: Colors.blue,
                           padding: EdgeInsets.all(8),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

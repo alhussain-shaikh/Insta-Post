@@ -88,7 +88,7 @@ class _PublicAccountState extends State<PublicAccount> {
                         left: 0,
                         child: Container(
                           key: stickyKeyUsenameContainer,
-                          color: Colors.redAccent,
+                          color: Colors.lightBlueAccent,
                           padding: EdgeInsets.all(8),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

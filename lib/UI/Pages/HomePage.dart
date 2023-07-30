@@ -11,9 +11,9 @@ import 'package:instaknown/UI/Widgets/EmojiContainer.dart';
 import 'package:instaknown/UI/Widgets/FloatingAppbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class HomePage extends StatefulWidget {
   static const id = 'HomePage';
+  // String email;
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -54,23 +54,23 @@ class _HomePageState extends State<HomePage>
       animatePubilcButton(!isPublicButtonExpanded);
     }
 
-    animationControllerPrivateButton = AnimationController(
-        duration: Duration(milliseconds: 300), vsync: this);
+    animationControllerPrivateButton =
+        AnimationController(duration: Duration(milliseconds: 300), vsync: this);
     curve = CurvedAnimation(
         parent: animationControllerPrivateButton, curve: Curves.ease);
     animationPrivateButton = Tween(
             begin: privateButtonOffset, end: open ? buttonExpandedHeight : 0.0)
         .animate(curve)
-          ..addListener(() {
-            setState(() {
-              privateButtonOffset = animationPrivateButton.value;
-            });
-          })
-          ..addStatusListener((status) {
-            if (status == AnimationStatus.completed) {
-              isPrivateButtonExpanded = open;
-            }
-          });
+      ..addListener(() {
+        setState(() {
+          privateButtonOffset = animationPrivateButton.value;
+        });
+      })
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          isPrivateButtonExpanded = open;
+        }
+      });
     animationControllerPrivateButton.forward();
   }
 
@@ -102,23 +102,23 @@ class _HomePageState extends State<HomePage>
       animatePrivateButton(!isPrivateButtonExpanded);
     }
 
-    animationControllerPubilcButton = AnimationController(
-        duration: Duration(milliseconds: 100), vsync: this);
+    animationControllerPubilcButton =
+        AnimationController(duration: Duration(milliseconds: 100), vsync: this);
     curve = CurvedAnimation(
         parent: animationControllerPubilcButton, curve: Curves.ease);
     animationPubilcButton =
         Tween(begin: pubilcButtonOffset, end: open ? buttonExpandedHeight : 0.0)
             .animate(curve)
-              ..addListener(() {
-                setState(() {
-                  pubilcButtonOffset = animationPubilcButton.value;
-                });
-              })
-              ..addStatusListener((status) {
-                if (status == AnimationStatus.completed) {
-                  isPublicButtonExpanded = open;
-                }
-              });
+          ..addListener(() {
+            setState(() {
+              pubilcButtonOffset = animationPubilcButton.value;
+            });
+          })
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              isPublicButtonExpanded = open;
+            }
+          });
     animationControllerPubilcButton.forward();
   }
 

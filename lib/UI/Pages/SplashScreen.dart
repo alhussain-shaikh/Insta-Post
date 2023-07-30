@@ -5,15 +5,16 @@ import 'package:instaknown/UI/Login/welcome.dart';
 import 'package:instaknown/UI/Pages/HomePage.dart';
 import 'package:instaknown/UI/Resources/Constants.dart' as R;
 
+
 class SplashScreen extends StatefulWidget {
   static const id = 'SplashScreen';
-
+  
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  _goToHomepage(BuildContext context) async {
+  _goToWelcomepage(BuildContext context) async {
     await Future.delayed(Duration(seconds: 5));
     Navigator.pushNamedAndRemoveUntil(context, WelcomePage.id, (r) => false);
   }
@@ -22,11 +23,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIOverlays([]);
-    WidgetsBinding.instance.addPostFrameCallback((_) => _goToHomepage(context));
+    WidgetsBinding.instance.addPostFrameCallback((_) => _goToWelcomepage(context));
   }
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       body: Stack(
         children: <Widget>[

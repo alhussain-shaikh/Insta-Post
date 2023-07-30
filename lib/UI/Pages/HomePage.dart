@@ -9,7 +9,6 @@ import 'package:instaknown/UI/Resources/Constants.dart' as R;
 import 'package:instaknown/UI/Resources/my_flutter_app_icons.dart';
 import 'package:instaknown/UI/Widgets/EmojiContainer.dart';
 import 'package:instaknown/UI/Widgets/FloatingAppbar.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   static const id = 'HomePage';

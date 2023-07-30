@@ -1,9 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instaknown/UI/Login/welcome.dart';
-import 'package:instaknown/UI/Pages/HomePage.dart';
-import 'package:instaknown/UI/Pages/SplashScreen.dart';
 
 class AuthController extends GetxController {
   //AuthController._instance

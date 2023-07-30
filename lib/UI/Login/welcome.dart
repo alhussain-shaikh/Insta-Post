@@ -15,22 +15,14 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   // text editing controllers
-  final usernameController = TextEditingController();
-
-  final passwordController = TextEditingController();
-
+   var usernameController = TextEditingController();
   double _sigmaX = 5;
   // from 0-10
   double _sigmaY = 5;
   // from 0-10
   double _opacity = 0.2;
 
-  double _width = 350;
-
-  double _height = 280;
-
   final _formKey = GlobalKey<FormState>();
-
   // sign user in method
   void signUserIn() {}
 
@@ -119,8 +111,8 @@ class _WelcomePageState extends State<WelcomePage> {
                                 MyButton(
                                   onTap: (() {
                                     if (_formKey.currentState.validate()) {
-                                      Navigator.pushNamed(
-                                          context, LoginPage.id);
+                                      Navigator.push(
+                                          context, MaterialPageRoute(builder: (context)=> LoginPage(email : usernameController.text.toString())) );
                                     } else {
                                       print('not valid');
                                     }

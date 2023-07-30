@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'dart:ui';
+import 'package:instaknown/UI/Login/auth_controller.dart';
 import 'package:instaknown/UI/Login/components/my_button.dart';
 import 'package:instaknown/UI/Login/components/my_textfield.dart';
 import 'package:instaknown/UI/Login/welcome.dart';
@@ -9,29 +9,39 @@ import 'package:instaknown/UI/Pages/HomePage.dart';
 
 class LoginPage extends StatefulWidget {
   static const id = 'Login Page';
-  LoginPage({key});
+  var email;
+  LoginPage({Key key, this.email});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // text editing controllers
-  final passwordController = TextEditingController();
+  var passwordController = TextEditingController();
 
   final double _sigmaX = 5;
+
   // from 0-10
   final double _sigmaY = 5;
+
   // from 0-10
   final double _opacity = 0.2;
-  final double _width = 350;
-  final double _height = 300;
 
   final _formKey = GlobalKey<FormState>();
 
-  // sign user in method
-  void signUserIn() {
+  // Login user in method
+  AuthController _authHelper = AuthController();
+
+  void loginIn() {
     if (_formKey.currentState.validate()) {
+      _authHelper
+          .login(widget.email, passwordController.text)
+          .then<void>((value) => {
+                Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(builder: (context) {
+                  return HomePage();
+                }))
+              });
       print('valid');
     } else {
       print('not valid');
@@ -40,6 +50,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // text editing controllers
+
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
@@ -133,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold)),
                                         const SizedBox(height: 5),
-                                        Text("PunePolice@gmail.com",
+                                        Text(widget.email,
                                             style: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 16))
@@ -152,15 +164,16 @@ class _LoginPageState extends State<LoginPage> {
                                 SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         0.03),
-                                MyButtonAgree(
-                                  text: "Login",
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => HomePage()));
-                                  },
-                                ),
+                                MyButtonAgree(text: "Login", onTap: loginIn
+                                    //  () {
+                                    // Navigator.push(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) => HomePage()));
+                                    // AuthController.instance
+                                    //     .login(widget.email, passwordController.text);
+                                    // },
+                                    ),
                                 const SizedBox(height: 15),
                                 const Text('Forgot Password?',
                                     style: TextStyle(

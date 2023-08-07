@@ -4,12 +4,9 @@ class MyTextField extends StatelessWidget {
   final controller;
   final String hintText;
   final bool obscureText;
-  const MyTextField({
-      key,
-     this.controller,
-     this.hintText,
-    this.obscureText,
-  });
+  final IconData icons;
+  const MyTextField(
+      {key, this.controller, this.hintText, this.obscureText, this.icons});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +15,17 @@ class MyTextField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
+          prefixIcon: Icon(icons),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(15)),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade400),
-          ),
-          fillColor: Colors.grey.shade200,
+              borderSide: BorderSide(color: Colors.grey.shade400),
+              borderRadius: BorderRadius.circular(15)),
+          fillColor: Color.fromARGB(255, 255, 255, 255),
           filled: true,
           hintText: hintText,
+          iconColor: Color.fromARGB(255, 0, 0, 0),
           hintStyle: TextStyle(color: Colors.grey[500])),
     );
   }
@@ -36,12 +35,9 @@ class MyPasswordTextField extends StatelessWidget {
   final controller;
   final String hintText;
   final bool obscureText;
-  const MyPasswordTextField({
-    key,
-    this.controller,
-    this.hintText,
-    this.obscureText,
-  });
+  final IconData icons;
+  const MyPasswordTextField(
+      {key, this.controller, this.hintText, this.obscureText, this.icons});
 
   @override
   Widget build(BuildContext context) {
@@ -50,13 +46,13 @@ class MyPasswordTextField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
-          suffixIcon: const Icon(Icons.visibility_off),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
+          prefixIcon: Icon(icons),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(15)),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade400),
-          ),
+              borderSide: BorderSide(color: Colors.grey.shade400),
+              borderRadius: BorderRadius.circular(15)),
           fillColor: Colors.grey.shade200,
           filled: true,
           hintText: hintText,

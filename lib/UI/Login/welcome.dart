@@ -5,6 +5,7 @@ import 'package:instaknown/UI/Login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:instaknown/UI/Login/components/my_button.dart';
 import 'package:instaknown/UI/Login/components/my_textfield.dart';
+import 'package:instaknown/UI/Resources/Constants.dart' as R;
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({key});
@@ -15,7 +16,8 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   // text editing controllers
-   var usernameController = TextEditingController();
+  var emailController = TextEditingController();
+  var usernameController = TextEditingController();
   double _sigmaX = 5;
   // from 0-10
   double _sigmaY = 5;
@@ -41,7 +43,8 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/PP.jpg"), fit: BoxFit.cover)),
+                        image: AssetImage("assets/white.jpg"),
+                        fit: BoxFit.cover)),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +72,27 @@ class _WelcomePageState extends State<WelcomePage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.23),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    top: 100.0 + MediaQuery.of(context).size.height / 2,
+                    child: Hero(
+                      tag: 'appName',
+                      child: Text(
+                        'InstaAnalysis',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 60,
+                          fontFamily: R.instagramFontFamily,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          letterSpacing: 3,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.09),
                   ClipRect(
                     child: BackdropFilter(
                       filter:
@@ -77,23 +100,24 @@ class _WelcomePageState extends State<WelcomePage> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                            color: Color.fromRGBO(0, 0, 0, 1)
+                            color: Color.fromRGBO(0, 0, 0, 0)
                                 .withOpacity(_opacity),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(30))),
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.35,
+                        height: MediaQuery.of(context).size.height * 0.4,
                         child: Form(
                           key: _formKey,
                           child: Center(
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                const Text("Jai Hind Officer!",
+                                const Text("Login Credentials",
                                     style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 40,
+                                      color: Colors.black,
+                                      // fontFamily: R.instagramFontFamily,
+                                      fontSize: 23,
                                     )),
                                 SizedBox(
                                     height: MediaQuery.of(context).size.height *
@@ -101,18 +125,36 @@ class _WelcomePageState extends State<WelcomePage> {
                                 // username textfield
                                 MyTextField(
                                   controller: usernameController,
+                                  hintText: 'Officer Id',
+                                  icons: Icons.person_2_outlined,
+                                  obscureText: false,
+                                ),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.02),
+                                MyTextField(
+                                  controller: emailController,
                                   hintText: 'Email',
+                                  icons: Icons.email_outlined,
                                   obscureText: false,
                                 ),
 
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 20),
 
                                 // sign in button
                                 MyButton(
                                   onTap: (() {
                                     if (_formKey.currentState.validate()) {
                                       Navigator.push(
-                                          context, MaterialPageRoute(builder: (context)=> LoginPage(email : usernameController.text.toString())) );
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => LoginPage(
+                                                    email: emailController.text
+                                                        .toString(),
+                                                    username: usernameController
+                                                        .text
+                                                        .toString(),
+                                                  )));
                                     } else {
                                       print('not valid');
                                     }

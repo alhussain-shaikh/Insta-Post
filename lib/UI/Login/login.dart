@@ -1,16 +1,18 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable
 import 'dart:ui';
 import 'package:instaknown/UI/Login/auth_controller.dart';
 import 'package:instaknown/UI/Login/components/my_button.dart';
 import 'package:instaknown/UI/Login/components/my_textfield.dart';
 import 'package:instaknown/UI/Login/welcome.dart';
 import 'package:flutter/material.dart';
-import 'package:instaknown/UI/Pages/HomePage.dart';
+
+import '../Pages/HomePage.dart';
 
 class LoginPage extends StatefulWidget {
   static const id = 'Login Page';
   var email;
-  LoginPage({Key key, this.email});
+  var username;
+  LoginPage({Key key, this.email, this.username});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -65,19 +67,19 @@ class _LoginPageState extends State<LoginPage> {
                 height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/PP2.jpg"),
+                        image: AssetImage("assets/white.jpg"),
                         fit: BoxFit.cover)),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
                         icon: const Icon(Icons.arrow_back_ios),
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 0, 0, 0),
                         onPressed: () =>
                             Navigator.pushNamed(context, WelcomePage.id),
                       ),
@@ -97,16 +99,16 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: MediaQuery.of(context).size.height * 0.28),
                   const Text("Log in",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 0, 0, 0),
                           fontSize: 40,
                           fontWeight: FontWeight.bold)),
-
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   ClipRect(
                     child: BackdropFilter(
                       filter:
                           ImageFilter.blur(sigmaX: _sigmaX, sigmaY: _sigmaY),
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                             color: Color.fromRGBO(0, 0, 0, 1)
                                 .withOpacity(_opacity),
@@ -122,8 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 15.0),
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Row(children: [
                                     const CircleAvatar(
                                       radius: 30,
@@ -139,15 +140,17 @@ class _LoginPageState extends State<LoginPage> {
                                           CrossAxisAlignment.start,
                                       // ignore: prefer_const_literals_to_create_immutables
                                       children: [
-                                        Text("Pune Police",
+                                        Text(widget.username,
                                             style: TextStyle(
-                                                color: Colors.white,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold)),
                                         const SizedBox(height: 5),
                                         Text(widget.email,
                                             style: const TextStyle(
-                                                color: Colors.white,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
                                                 fontSize: 16))
                                       ],
                                     )
@@ -159,25 +162,17 @@ class _LoginPageState extends State<LoginPage> {
                                 MyTextField(
                                   controller: passwordController,
                                   hintText: 'Password',
+                                  icons: Icons.password_outlined,
                                   obscureText: true,
                                 ),
                                 SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         0.03),
-                                MyButtonAgree(text: "Login", onTap: loginIn
-                                    //  () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) => HomePage()));
-                                    // AuthController.instance
-                                    //     .login(widget.email, passwordController.text);
-                                    // },
-                                    ),
+                                MyButtonAgree(text: "Login", onTap: loginIn),
                                 const SizedBox(height: 15),
                                 const Text('Forgot Password?',
                                     style: TextStyle(
-                                        color: Color.fromARGB(255, 0, 217, 255),
+                                        color: Color.fromARGB(255, 0, 0, 0),
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 18),
                                     textAlign: TextAlign.start),

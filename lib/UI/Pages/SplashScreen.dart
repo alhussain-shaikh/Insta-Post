@@ -1,14 +1,11 @@
-import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:instaknown/UI/Login/welcome.dart';
-import 'package:instaknown/UI/Pages/HomePage.dart';
 import 'package:instaknown/UI/Resources/Constants.dart' as R;
-
 
 class SplashScreen extends StatefulWidget {
   static const id = 'SplashScreen';
-  
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -23,12 +20,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIOverlays([]);
-    WidgetsBinding.instance.addPostFrameCallback((_) => _goToWelcomepage(context));
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => _goToWelcomepage(context));
   }
 
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -82,7 +79,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 style: TextStyle(
                   fontSize: 60,
                   fontFamily: R.instagramFontFamily,
-                  color: Colors.white,
+                  color: Colors.black,
                   letterSpacing: 3,
                   fontWeight: FontWeight.w500,
                 ),
